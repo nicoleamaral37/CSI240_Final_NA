@@ -1,9 +1,20 @@
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
-00000265FEAEC960
+Type: toeloop
+Rotations: 3
+GOE: 3
+Score: 5.46
+
+Type: toeloop
+Rotations: 3
+GOE: 3
+Score: 5.46
+
+Type: toeloop
+Rotations: 3
+GOE: 3
+Score: 5.46
+
+Type: toeloop
+Rotations: 3
+GOE: 3
+Score: 5.46
+

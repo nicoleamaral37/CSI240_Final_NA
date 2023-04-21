@@ -1,5 +1,33 @@
 #include "program.h"
 
+std::ostream& operator<<(std::ostream& out, Elements*& el)
+{
+	string types[15] = { "toeloop", "salchow", "loop", "flip", "lutz", "axel",
+"upright", "layback", "camel", "sit", "step", "upright special or combo", "layback special",
+	"camel special, sit special", "combo special" };
+
+	if (el->getType() == 0 ||
+		el->getType() == 1 ||
+		el->getType() == 2 ||
+		el->getType() == 3 ||
+		el->getType() == 4 ||
+		el->getType() == 5)
+	{
+		Jumps* onlyJump = static_cast<Jumps*>(el);
+		out << "Type: " << types[onlyJump->getType()] << "\n" <<
+			"Rotations: " << onlyJump->getRotations() << "\n" <<
+			"GOE: " << onlyJump->getGOE() << "\n" <<
+			"Score: " << onlyJump->getBV() << "\n";
+	}
+	else
+	{
+		SpinsAndSequences* onlySpinOrSeq = static_cast<SpinsAndSequences*>(el);
+		out << "Type" << onlySpinOrSeq->getType() << "\n" <<
+			"level" << onlySpinOrSeq->getLevel();
+	}
+	
+	return out;
+}
 
 void splitLine(string element, vector<string>& infoPieces)
 {
@@ -256,12 +284,9 @@ Elements* findInfo(string element, double &total)
 		anElement->getDescription();
 		//shortProgram.push_back(aJump);
 	
-		Jumps* onlyJump = static_cast<Jumps*>(anElement);
-		total += onlyJump->getBV();
+		//Jumps* onlyJump = static_cast<Jumps*>(anElement);
+		total += anElement->getBV();
 		//cout << types[type] << " " << onlyJump->getBV() << endl;
-		//cout << " " << onlyJump->getBV() << endl;
-		//tempIndex++;
-		//cout << "indeX: " << tempIndex << endl;
 	
 		return anElement;
 	}
@@ -281,18 +306,14 @@ Elements* findInfo(string element, double &total)
 		Elements* anElement = new SpinsAndSequences(type, level, GOE, deduction, bv, marking);
 		//shortProgram.push_back(anElement);
 		anElement->getDescription();
-		SpinsAndSequences* onlySpinOrSeq = static_cast<SpinsAndSequences*>(anElement);
-		total += onlySpinOrSeq->getBV();
+		//SpinsAndSequences* onlySpinOrSeq = static_cast<SpinsAndSequences*>(anElement);
+		total += anElement->getBV();
+		//cout << anElement;
 	
 		return anElement;
 		//cout << types[type] << " " << onlySpinOrSeq->getBV() << endl;
-		//cout << " " << onlySpinOrSeq->getBV() << endl;
-		//tempIndex++;
-		//cout << "indeX: " << tempIndex << endl;
-		//tempIndex++;
 	}
 	
-	//return anElement;
 }
 
 /*ostream& operator>>(ostream& out, Jumps& jump)
@@ -302,18 +323,7 @@ Elements* findInfo(string element, double &total)
 }
 */
 
-ofstream& operator<<(ofstream& out, Elements& el)
-{
-	out << el.type;
-}
-
-/*ostream& operator<<(ostream& out, const Clock & clock)
-{
-	out << setw(2) << setfill('0') << clock.hour << ":" << setfill('0') << setw(2) << clock.minute;
-	return out;
-}
-*/
-istream& operator>>(istream& in, SpinsAndSequences& SpinOrSeq)
+/*istream& operator>>(istream& in, SpinsAndSequences& SpinOrSeq)
 {
 	cout << "Enter hours: ";
 	//in >> clock.hour;
@@ -321,3 +331,4 @@ istream& operator>>(istream& in, SpinsAndSequences& SpinOrSeq)
 	//in >> clock.minute;
 	return in;
 }
+*/

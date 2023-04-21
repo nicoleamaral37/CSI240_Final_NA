@@ -46,10 +46,13 @@ public:
 	double findTotalGOE();
 	int getDeductions();
 
+	elTypes getType();
+	double getGOE();
+
 	
 	virtual void getDescription () = 0;
-	//virtual double getBV() = 0;
-	friend ofstream& operator<<(ostream& out, Elements& el);
+	virtual double getBV() = 0;
+	friend std::ostream& operator<<(ostream& out, Elements*& el);
 protected:
 	double totalGOE;
 	double bv;
@@ -73,9 +76,9 @@ public:
 	SpinsAndSequences(elTypes type, int level, double GOE, int deduction, double bv, string marking);
 	void getDescription();
 	double getBV();
-	friend istream& operator>>(istream& in, SpinsAndSequences& SpinOrSeq);
+	//friend istream& operator>>(istream& in, SpinsAndSequences& SpinOrSeq);
 	
-
+	int getLevel();
 	
 protected:
 	int level;
@@ -112,6 +115,8 @@ public:
 	double calcSecondHalf(double bv);
 	void decipherMarkings();
 	double getBV();
+
+	int getRotations();
 
 	friend ostream& operator>>(ostream& out, Jumps& jump);
 

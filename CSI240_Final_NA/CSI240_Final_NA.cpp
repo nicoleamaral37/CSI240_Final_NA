@@ -1,8 +1,5 @@
 
-
 #include "Program.h"
-
-
 
 int main()
 {
@@ -33,12 +30,10 @@ int main()
            // shortProgram[shortProgram.size() - 1]->getDescription();
             // shortProgram[0]->getDescription();
 
-            shortProgram[0]->getDescription();
+           // shortProgram[0]->getDescription();
             // total += shortProgram[0]->getBV();
-
-
-
-
+            fout << shortProgram[0] << endl;
+            cout << shortProgram.size();
 
          //  cout << shortProgram[tempIndex-1];
 
@@ -53,22 +48,19 @@ int main()
                 shortProgram[i]->getDescription();
             }
              */
-
-
         }
         cout << endl << total << " " << total - shortProgram[shortProgram.size()-1]->getDeductions() << endl;
-
-
-
-        
     }
 
-    for (int i = 0; i < shortProgram.size(); i++)
+    /*for (int i = 0; i < shortProgram.size(); i++)
     {
+        cout << shortProgram.size();
         delete shortProgram[i];
         shortProgram[i] = nullptr;
     }
+    */
     shortProgram.clear();
+   
     
 }
 

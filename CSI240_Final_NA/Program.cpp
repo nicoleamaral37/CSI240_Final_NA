@@ -45,6 +45,17 @@ int Elements::getDeductions()
 	return deduction;
 }
 
+double Elements::getGOE()
+{
+	return GOE;
+}
+
+elTypes Elements::getType()
+	{
+		return type;
+	}
+
+
 //SPINS AND SEQUENCES
 
 const double SpinsAndSequences::upright[5] = { 1.0,1.2,1.5,1.9,2.4 };
@@ -88,6 +99,11 @@ void SpinsAndSequences::getDescription()
 		<< "Total deductions: " << deduction << endl;
 
 
+}
+
+int SpinsAndSequences::getLevel()
+{
+	return level;
 }
 
 //SpinsAndSequences calc member functions
@@ -194,6 +210,11 @@ void Jumps::getDescription()
 		<< "Total deductions: " << deduction << endl;
 
 	
+}
+
+int Jumps::getRotations()
+{
+	return rotations;
 }
 //Jumps calc member functions
 
